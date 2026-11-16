@@ -1,0 +1,234 @@
+:root {
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-light-pink: hsl(275, 100%, 97%);
+  --clr-grayish-purple: hsl(292, 16%, 49%);
+  --clr-dark-purple: hsl(292, 42%, 14%);
+  --clr-accent-purple: #AD28EB;
+
+  --ff-primary: 'Work Sans', sans-serif;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--ff-primary);
+  background-color: var(--clr-light-pink);
+  color: var(--clr-dark-purple);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  position: relative;
+  line-height: 1.5;
+}
+
+/* Top Decorative Pattern */
+/* Note: Replace the radial-gradient/SVG below with your local background-pattern-desktop.svg and background-pattern-mobile.svg if you have the challenge asset folder */
+.bg-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 232px;
+  background-color: var(--clr-dark-purple);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='320' fill='none' viewBox='0 0 1440 320'%3E%3Cpath stroke='%23AD28EB' stroke-width='2' d='M-50 280C220 260 380 80 420-20M380-20C280 180 450 340 850 260C1150 200 1320 80 1420-20'/%3E%3C/svg%3E");
+  background-size: cover;
+  background-position: center bottom;
+  z-index: -1;
+}
+
+@media (min-width: 768px) {
+  .bg-pattern {
+    height: 320px;
+  }
+}
+
+/* Main Card */
+.faq-card {
+  background-color: var(--clr-white);
+  width: 100%;
+  max-width: 37.5rem; /* 600px */
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 32px 56px rgba(80, 0, 118, 0.1);
+}
+
+@media (min-width: 768px) {
+  .faq-card {
+    padding: 2.5rem;
+  }
+}
+
+/* Header */
+.faq-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.star-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}
+
+.faq-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--clr-dark-purple);
+}
+
+@media (min-width: 768px) {
+  .faq-header {
+    margin-bottom: 2rem;
+  }
+
+  .star-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .faq-header h1 {
+    font-size: 3.5rem;
+  }
+}
+
+/* Accordion Items */
+.accordion-item {
+  border-bottom: 1px solid var(--clr-light-pink);
+  padding-block: 1.25rem;
+}
+
+.accordion-item:first-child {
+  padding-top: 0;
+}
+
+.accordion-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .accordion-item {
+    padding-block: 1.5rem;
+  }
+}
+
+/* Interactive Trigger Button */
+.accordion-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--clr-dark-purple);
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+@media (min-width: 768px) {
+  .accordion-trigger {
+    font-size: 1.125rem;
+  }
+}
+
+/* Hover & Keyboard Focus States */
+.accordion-trigger:hover {
+  color: var(--clr-accent-purple);
+}
+
+.accordion-trigger:focus-visible {
+  color: var(--clr-accent-purple);
+  outline: 2px solid var(--clr-accent-purple);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Plus / Minus Icon Toggling */
+.icon-wrapper {
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.icon-minus {
+  display: none;
+}
+
+/* When your JS sets aria-expanded="true" on the button, icons swap automatically */
+.accordion-trigger[aria-expanded="true"] .icon-plus {
+  display: none;
+}
+
+.accordion-trigger[aria-expanded="true"] .icon-minus {
+  display: block;
+}
+
+/* Answer Panel */
+.accordion-panel {
+  margin-top: 1.5rem;
+  color: var(--clr-grayish-purple);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.accordion-panel[hidden] {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .accordion-panel {
+    font-size: 1rem;
+  }
+}
+/* Interactive Trigger Button */
+.accordion-trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--clr-dark-purple);
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  cursor: pointer;
+  transition: color 0.15s ease;
+}
+
+@media (min-width: 768px) {
+  .accordion-trigger {
+    font-size: 1.125rem;
+  }
+}
+
+/* Hover & Keyboard Focus States (matches active-states.jpg) */
+.accordion-trigger:hover,
+.accordion-trigger:focus-visible {
+  color: var(--clr-accent-purple);
+}
+
+.accordion-trigger:focus-visible {
+  outline: 2px solid var(--clr-accent-purple);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
